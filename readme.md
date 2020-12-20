@@ -4,3 +4,5 @@ gulu demo init
 1. CSS变量的使用（var --background）
 2. npm i -D plugin  (--save-dev)
 3. npm i pugin (--save)
+4. parcel 参数（--no-cache）运行
+5. npx parcel index.html => ./node_modules/.bin/parcel index.html
