@@ -4,8 +4,7 @@
   "description": "gulu ",
   "main": "index.js",
   "scripts": {
-    "parcel": "parcel *.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel index.html --no-cache"
   },
   "repository": {
     "type": "git",

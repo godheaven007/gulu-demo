@@ -5,11 +5,12 @@
 </template>
 
 <script>
+    import svg from './svg'
     export default {
         name: "icon",
         props: {
             type: {
-                // default: 'setting'
+                default: 'setting'
             }
         },
     }
