@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "buttonGroup",
+  name: "GuluButtonGroup",
   mounted() {
     for(let node of this.$el.children) {
       let tagName = node.tagName.toLocaleLowerCase();

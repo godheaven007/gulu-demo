@@ -47,6 +47,25 @@
                 <g-button icon-type="arrow-right">下一页</g-button>
             </g-button-group>
         </div>
+        <div class="box">
+            <g-input value="disabled input" disabled></g-input>
+            <g-input value="readonly input" readonly></g-input>
+            <g-input value="normal input"></g-input>
+        </div>
+        <div class="box">
+            <g-input value="success input" info-msg="成功" info-type="success"></g-input>
+        </div>
+        <div class="box">
+            <g-input value="error input" info-msg="错误" info-type="error"></g-input>
+        </div>
+        <div class="box">
+            <g-input value="warn input" info-msg="警告" info-type="warn"></g-input>
+        </div>
+        <div class="box">
+            <g-input v-model="num" placeholder="自定义组件实现双向绑定"></g-input>
+            <p>{{num}}</p>
+            <button @click="num+=1">累加3</button>
+        </div>
     </div>
 
     <script src="src/app.js"></script>

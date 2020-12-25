@@ -11,3 +11,10 @@ gulu demo init
 1. 方便调试用（vue-devtool）
 
 ## 样式Scoped的用处
+
+## 自定义组件实现双向数据绑定
+```vue
+<custom-input v-model="variable"></custom-input>
+等同于
+<custom-input :value="variable" @input="variable=e.target.value"></custom-input>
+```
