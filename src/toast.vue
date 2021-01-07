@@ -1,8 +1,10 @@
 <template>
   <div class="toast" ref="wrapper">
-    <div class="toast-msg">
+    <div class="toast-msg" v-if="enableHtml" v-html="$slots.default[0]"></div>
+    <div class="toast-msg" v-else>
       <slot></slot>
     </div>
+
     <template v-if="toastType == 2">
       <div class="toast-line" ref="line"></div>
       <div class="toast-btn" @click="doManualClose">
@@ -36,10 +38,14 @@ export default {
           callback: null
         }
       }
+    },
+    enableHtml: {
+      type: Boolean,
+      default: false
     }
   },
   created() {
-    // console.log(this.toastType);
+    console.log(this.$slots);
   },
   mounted() {
     this.doAutoClose();

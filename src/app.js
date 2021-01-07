@@ -25,14 +25,20 @@ var vm = new Vue({
     created() {
         // this.$toast('Toast信息');
 
-        this.$toast('Toast信息', {
+        // this.$toast('Toast信息', {
+        //     toastType: 2,
+        //     closeBtn: {
+        //         btnTxt: '我知道了',
+        //         callback(toastVm) {
+        //             toastVm.log();
+        //         }
+        //     }
+        // });
+
+        this.$toast('<h1 style="color: red;">支持<i>html</i></h1>', {
             toastType: 2,
-            closeBtn: {
-                btnTxt: '我知道了',
-                callback(toastVm) {
-                    toastVm.log();
-                }
-            }
+            enableHtml: true,
+            autoCloseDelay: 50000
         });
     },
     methods: {
@@ -40,7 +46,7 @@ var vm = new Vue({
         //     this.num = v;
         // }
         doToast() {
-            this.$toast('aaa');
+            this.$toast('Toast信息');
         }
     }
 });
