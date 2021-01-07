@@ -18,3 +18,42 @@ gulu demo init
 等同于
 <custom-input :value="variable" @input="variable=e.target.value"></custom-input>
 ```
+
+## toast组件
+1. plugin使用 **Vue.use(customPlugin)**
+   
+2. [动态创建实例](https://zhuanlan.zhihu.com/p/38076208)
+```vue
+let Constructor = Vue.extend(toast);
+let curVm = new Constructor();
+curVm.$mount('#app')
+```
+3. 插槽默认值设置
+```vue
+this.$slots.default = [message]
+```
+4. $destroy
+   * 只是完全销毁一个实例。清理它与其它实例的连接，解绑它的全部指令及事件监听器。
+   * 若要删除dom，则需手动清除
+
+5. [getBoundingClientRect 用Javascript获取页面元素的位置](http://www.ruanyifeng.com/blog/2009/09/find_element_s_position_using_javascript.html)
+6. nextTick
+7. flex-basic 
+   * [flex-basic 中文](https://www.cnblogs.com/thinkingthigh/p/10033809.html)
+   * [flex-basic 英文](https://mastery.games/post/the-difference-between-width-and-flex-basis/)
+8. 使用
+   ```vue
+   普通：
+   this.$toast('Toast信息');
+
+   扩展：
+   this.$toast('Toast信息', {
+        toastType: 2,
+        closeBtn: {
+        // btnTxt: '我知道了',
+        callback(toastVm) {
+           toastVm.log();
+        }
+      }
+   });
+   ``` 

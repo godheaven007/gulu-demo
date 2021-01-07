@@ -22,12 +22,25 @@ var vm = new Vue({
     data: {
         num: 'h'
     },
+    created() {
+        // this.$toast('Toast信息');
+
+        this.$toast('Toast信息', {
+            toastType: 2,
+            closeBtn: {
+                btnTxt: '我知道了',
+                callback(toastVm) {
+                    toastVm.log();
+                }
+            }
+        });
+    },
     methods: {
         // handleInput(v) {
         //     this.num = v;
         // }
         doToast() {
-            this.$toast('ggg');
+            this.$toast('aaa');
         }
     }
 });
