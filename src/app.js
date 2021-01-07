@@ -23,8 +23,12 @@ var vm = new Vue({
         num: 'h'
     },
     created() {
-        // this.$toast('Toast信息');
+        // 普通toast
+        this.$toast('Toast信息', {
+            position: 'bottom'
+        });
 
+        // 扩展toast
         // this.$toast('Toast信息', {
         //     toastType: 2,
         //     closeBtn: {
@@ -35,11 +39,12 @@ var vm = new Vue({
         //     }
         // });
 
-        this.$toast('<h1 style="color: red;">支持<i>html</i></h1>', {
-            toastType: 2,
-            enableHtml: true,
-            autoCloseDelay: 50000
-        });
+        // 支持自定义html
+        // this.$toast('<h1 style="color: red;">支持<i>html</i></h1>', {
+        //     toastType: 2,
+        //     enableHtml: true,
+        //     autoCloseDelay: 50000
+        // });
     },
     methods: {
         // handleInput(v) {

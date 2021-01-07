@@ -1,5 +1,5 @@
 <template>
-  <div class="toast" ref="wrapper">
+  <div class="toast" :class="[position]" ref="wrapper">
     <div class="toast-msg" v-if="enableHtml" v-html="$slots.default[0]"></div>
     <div class="toast-msg" v-else>
       <slot></slot>
@@ -18,6 +18,13 @@
 export default {
   name: "GuluToast",
   props: {
+    position: {
+      type: String,
+      default: 'top',
+      validator(value) {
+        return ['top', 'middle', 'bottom'].indexOf(value) != -1;
+      }
+    },
     autoClose: {
       type: Boolean,
       default: true
@@ -45,7 +52,7 @@ export default {
     }
   },
   created() {
-    console.log(this.$slots);
+    console.log(this.position);
   },
   mounted() {
     this.doAutoClose();
@@ -58,18 +65,19 @@ export default {
     doAutoClose() {
       if(this.autoClose) {
         setTimeout(() => {
-          this.$destroy();
-          this.$el.remove();
+          this.close();
         }, this.autoCloseDelay);
       }
     },
     doManualClose() {
-      this.$destroy();
-      this.$el.remove();
-
+      this.close();
       if(this.closeBtn.callback && Object.prototype.toString.call(this.closeBtn.callback) == '[object Function]') {
         this.closeBtn.callback(this);
       }
+    },
+    close() {
+      this.$destroy();
+      this.$el.remove();
     },
     log() {
       console.log('日志输出...')
@@ -89,7 +97,6 @@ export default {
     align-items: center;
     position: fixed;
     left: 50%;
-    top: 0;
     transform: translateX(-50%);
     width: 200px;
     min-height: 50px;
@@ -97,6 +104,9 @@ export default {
     border-radius: 4px;
     text-align: center;
     background-color: rgba(0,0,0,0.6);
+    &.top {top:0;}
+    &.middle {top: 50%; transform: translateY(-50%);}
+    &.bottom {bottom: 0;}
     .toast-msg {
       flex-grow: 1;
     }
