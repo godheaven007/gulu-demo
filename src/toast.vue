@@ -31,7 +31,7 @@ export default {
     },
     autoCloseDelay: {
       type: Number,
-      default: 1800
+      default: 18000
     },
     toastType: {
       type: [String, Number],
@@ -52,7 +52,7 @@ export default {
     }
   },
   created() {
-    console.log(this.position);
+
   },
   mounted() {
     this.doAutoClose();
@@ -76,6 +76,8 @@ export default {
       }
     },
     close() {
+      // 应在销毁之前触发（销毁后会解除所有实例的事件绑定）
+      this.$emit('emptyInstance');
       this.$destroy();
       this.$el.remove();
     },
@@ -92,6 +94,20 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  @keyframes slideInDown {
+    0% {opacity: 0; transform: translate(-50%, -100%);}
+    100% {opacity: 1; transform: translate(-50%, 0);}
+  }
+  @keyframes slideInUp {
+    0% {opacity: 0; transform: translate(-50%, 100%);}
+    100% {opacity: 1; transform: translate(-50%, 0);}
+  }
+  @keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1; }
+  }
+
+  $animationDuration: .5s;
   .toast {
     display: flex;
     align-items: center;
@@ -104,9 +120,23 @@ export default {
     border-radius: 4px;
     text-align: center;
     background-color: rgba(0,0,0,0.6);
-    &.top {top:0;}
-    &.middle {top: 50%; transform: translateY(-50%);}
-    &.bottom {bottom: 0;}
+    &.top {
+      top:0;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      animation: slideInDown $animationDuration;
+    }
+    &.middle {
+      top: 50%;
+      transform: translate(-50%, -50%);
+      animation: fadeIn $animationDuration;
+    }
+    &.bottom {
+      bottom: 0;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      animation: slideInUp $animationDuration;
+    }
     .toast-msg {
       flex-grow: 1;
     }

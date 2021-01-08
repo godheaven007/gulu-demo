@@ -24,9 +24,9 @@ var vm = new Vue({
     },
     created() {
         // 普通toast
-        this.$toast('Toast信息', {
-            position: 'bottom'
-        });
+        // this.$toast('Toast信息', {
+        //     position: 'bottom'
+        // });
 
         // 扩展toast
         // this.$toast('Toast信息', {
@@ -51,7 +51,13 @@ var vm = new Vue({
         //     this.num = v;
         // }
         doToast() {
-            this.$toast('Toast信息');
+            this.$toast('Toast1', {position: 'top'});
+        },
+        doToast2() {
+            this.$toast('Toast2', {position: 'middle'});
+        },
+        doToast3() {
+            this.$toast('Toast3', {position: 'bottom'});
         }
     }
 });

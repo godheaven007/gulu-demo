@@ -28,18 +28,31 @@ import toast from "./toast";
 //     }
 // }
 
+let curToastVm = null;
+
+function createToast({Vue, msg, toastOpt}) {
+    let Constructor = Vue.extend(toast);
+    let curVm = new Constructor({
+        propsData: toastOpt
+    });
+    // 插槽默认值设置
+    curVm.$slots.default = [msg];
+    curVm.$mount();
+    document.body.appendChild(curToastVm.$el);
+
+    return curVm;
+}
+
 export default {
     install(Vue, options) {
         Vue.prototype.$toast = function (msg, toastOpt) {
-            let Constructor = Vue.extend(toast);
-            let curVm = new Constructor({
-                propsData: toastOpt
+            if(curToastVm) {
+                curToastVm.close();
+            }
+            curToastVm = createToast({Vue, msg, toastOpt});
+            curToastVm.$on('emptyInstance', function () {
+                curToastVm = null;
             });
-
-            // 插槽默认值设置
-            curVm.$slots.default = [msg];
-            curVm.$mount();
-            document.body.appendChild(curVm.$el);
         }
     }
 }
