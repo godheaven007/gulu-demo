@@ -38,7 +38,7 @@ function createToast({Vue, msg, toastOpt}) {
     // 插槽默认值设置
     curVm.$slots.default = [msg];
     curVm.$mount();
-    document.body.appendChild(curToastVm.$el);
+    document.body.appendChild(curVm.$el);
 
     return curVm;
 }
