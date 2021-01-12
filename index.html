@@ -26,60 +26,80 @@
 </head>
 <body>
     <div id="app">
-        <button @click="doToast">Toast top</button>
-        <button @click="doToast2">Toast middle</button>
-        <button @click="doToast3">Toast bottom</button>
         <div class="box">
-            <g-button>
-                按钮
-            </g-button>
-            <g-button icon-type="setting">
-                按钮
-            </g-button>
-            <g-button icon-type="awesome" icon-position="right">
-                按钮
-            </g-button>
+            <g-tab :selected.sync="selectedTab">
+                <g-tab-head>
+                    <g-tab-item name="finance">财经</g-tab-item>
+                    <g-tab-item name="sports">体育</g-tab-item>
+                    <g-tab-item name="fun"><g-icon type="setting"></g-icon>娱乐</g-tab-item>
+                    <g-button class="actionBtn">操作</g-button>
+                </g-tab-head>
+                <g-tab-body>
+                    <g-tab-pane name="finance">财经资讯</g-tab-pane>
+                    <g-tab-pane name="sports">体育资讯</g-tab-pane>
+                    <g-tab-pane name="fun">娱乐资讯</g-tab-pane>
+                </g-tab-body>
+            </g-tab>
         </div>
-        <div class="box">
-            <g-icon></g-icon>
-        </div>
-        <div class="box">
-            <g-button-group>
-                <g-button icon-type="arrow-left">上一页</g-button>
-                <g-button>更多</g-button>
-                <g-button icon-type="arrow-right">下一页</g-button>
-            </g-button-group>
-        </div>
-        <div class="box">
-            <g-input value="disabled input" disabled></g-input>
-            <g-input value="readonly input" readonly></g-input>
-            <g-input value="normal input"></g-input>
-        </div>
-        <div class="box">
-            <g-input value="success input" info-msg="成功" info-type="success"></g-input>
-        </div>
-        <div class="box">
-            <g-input value="error input" info-msg="错误" info-type="error"></g-input>
-        </div>
-        <div class="box">
-            <g-input value="warn input" info-msg="警告" info-type="warn"></g-input>
-        </div>
-        <div class="box">
-            <g-input v-model="num" placeholder="自定义组件实现双向绑定"></g-input>
-            <p>{{num}}</p>
-            <button @click="num+=1">累加3</button>
-        </div>
-        <div class="box" style="border:1px solid #000">
-            <g-row gutter="20">
-                <g-col>col-1</g-col>
-                <g-col>col-2</g-col>
-                <g-col>col-3</g-col>
-            </g-row>
-            <g-row>
-                <g-col :span="2">col-1</g-col>
-                <g-col :span="20" :offset="2">col-2</g-col>
-            </g-row>
-        </div>
+
+
+
+        <!--<div class="box">-->
+            <!--<button @click="doToast">Toast top</button>-->
+            <!--<button @click="doToast2">Toast middle</button>-->
+            <!--<button @click="doToast3">Toast bottom</button>-->
+        <!--</div>-->
+        <!--<div class="box">-->
+            <!--<g-button>-->
+                <!--按钮-->
+            <!--</g-button>-->
+            <!--<g-button icon-type="setting">-->
+                <!--按钮-->
+            <!--</g-button>-->
+            <!--<g-button icon-type="awesome" icon-position="right">-->
+                <!--按钮-->
+            <!--</g-button>-->
+        <!--</div>-->
+        <!--<div class="box">-->
+            <!--<g-icon></g-icon>-->
+        <!--</div>-->
+        <!--<div class="box">-->
+            <!--<g-button-group>-->
+                <!--<g-button icon-type="arrow-left">上一页</g-button>-->
+                <!--<g-button>更多</g-button>-->
+                <!--<g-button icon-type="arrow-right">下一页</g-button>-->
+            <!--</g-button-group>-->
+        <!--</div>-->
+        <!--<div class="box">-->
+            <!--<g-input value="disabled input" disabled></g-input>-->
+            <!--<g-input value="readonly input" readonly></g-input>-->
+            <!--<g-input value="normal input"></g-input>-->
+        <!--</div>-->
+        <!--<div class="box">-->
+            <!--<g-input value="success input" info-msg="成功" info-type="success"></g-input>-->
+        <!--</div>-->
+        <!--<div class="box">-->
+            <!--<g-input value="error input" info-msg="错误" info-type="error"></g-input>-->
+        <!--</div>-->
+        <!--<div class="box">-->
+            <!--<g-input value="warn input" info-msg="警告" info-type="warn"></g-input>-->
+        <!--</div>-->
+        <!--<div class="box">-->
+            <!--<g-input v-model="num" placeholder="自定义组件实现双向绑定"></g-input>-->
+            <!--<p>{{num}}</p>-->
+            <!--<button @click="num+=1">累加3</button>-->
+        <!--</div>-->
+        <!--<div class="box" style="border:1px solid #000">-->
+            <!--<g-row gutter="20">-->
+                <!--<g-col>col-1</g-col>-->
+                <!--<g-col>col-2</g-col>-->
+                <!--<g-col>col-3</g-col>-->
+            <!--</g-row>-->
+            <!--<g-row>-->
+                <!--<g-col :span="2">col-1</g-col>-->
+                <!--<g-col :span="20" :offset="2">col-2</g-col>-->
+            <!--</g-row>-->
+        <!--</div>-->
     </div>
 
     <script src="src/app.js"></script>

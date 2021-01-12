@@ -5,8 +5,12 @@ import ButtonGroup from './buttonGroup';
 import Input from './input';
 import Row from './row';
 import Col from './col';
-import Toast from './toast';
 import plugin from "./plugin";
+import tab from './tab';
+import tabHead from './tab-head';
+import tabItem from './tab-item';
+import tabBody from './tab-body';
+import tabPane from './tab-pane';
 
 Vue.component('g-button', Button);
 Vue.component('g-icon', Icon);
@@ -15,12 +19,18 @@ Vue.component('g-input', Input);
 Vue.component('g-row', Row);
 Vue.component('g-col', Col);
 
+Vue.component('g-tab', tab);
+Vue.component('g-tab-head', tabHead);
+Vue.component('g-tab-item', tabItem);
+Vue.component('g-tab-body', tabBody);
+Vue.component('g-tab-pane', tabPane);
+
 Vue.use(plugin);
 
 var vm = new Vue({
     el: '#app',
     data: {
-        num: 'h'
+        selectedTab: 'sports'
     },
     created() {
         // 普通toast
