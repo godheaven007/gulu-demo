@@ -14,14 +14,13 @@
         inject: ['eventBus'],
         created() {
           this.eventBus.$on('update:selected', (selectName, vm) => {
-            console.log(vm.$el);
-            let {width, height, top, left} = vm.$el.getBoundingClientRect();
+              // 不要从getBoundingClientRect中获取left值，该值表示距离浏览器窗口左上角的相对距离
+            let {width} = vm.$el.getBoundingClientRect();
+            let left = vm.$el.offsetLeft;
             this.$refs.line.style.width = `${width}px`;
-            this.$refs.line.style.left = `${left}px`;
-            console.log(width);
-            console.log(height);
-            console.log(top);
-            console.log(left);
+            // this.$refs.line.style.left = `${left}px`;
+              // 开启3d加速
+              this.$refs.line.style.transform = `translateX(${left}px)`;
           });
         }
     }
