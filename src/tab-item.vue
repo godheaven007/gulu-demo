@@ -1,7 +1,6 @@
 <template>
     <div class="tab-item" @click="switchTab" :class="showCurTab">
         <slot></slot>
-        <div class="line"></div>
     </div>
 </template>
 
@@ -9,7 +8,16 @@
     export default {
         name: "GuluTabItem",
         inject: ['eventBus'],
-        props: ['name'],
+        props: {
+          disabled: {
+            type: Boolean,
+            default: false
+          },
+          name: {
+            type: String|Number,
+            required: true
+          }
+        },
         data() {
             return {
                 active: false
@@ -22,40 +30,38 @@
         },
         methods: {
             switchTab() {
-                this.eventBus.$emit('update:selected', this.name);
+                if(this.disabled) return;
+                this.eventBus.$emit('update:selected', this.name, this);
             }
         },
         computed: {
             showCurTab() {
-                return {active: this.active}
+                return {
+                  active: this.active,
+                  disabled: this.disabled
+                }
             }
         }
     }
 </script>
 
 <style scoped lang="scss">
+    $activeColor: #409eff;
     .tab-item {
-        position: relative;
         display: flex;
-        justify-content: center;
         align-items: center;
         height: 100%;
-        padding: 0 10px;
+        padding: 0 2em;
         cursor: pointer;
-        border: 1px solid grey;
-        border-bottom: none;
-        &.active {
-            color: blue;
-            > .line{
-                background-color: red;
-            }
+        &:hover {
+          color: $activeColor
         }
-        > .line {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 1px;
-            background-color: transparent;
+        &.active {
+          color: $activeColor;
+        }
+        &.disabled {
+          cursor: not-allowed;
+          color: lightgray;
         }
     }
 </style>

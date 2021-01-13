@@ -30,9 +30,11 @@
             <g-tab :selected.sync="selectedTab">
                 <g-tab-head>
                     <g-tab-item name="finance">财经</g-tab-item>
-                    <g-tab-item name="sports">体育</g-tab-item>
+                    <g-tab-item name="sports" :disabled="true">体育</g-tab-item>
                     <g-tab-item name="fun"><g-icon type="setting"></g-icon>娱乐</g-tab-item>
-                    <g-button class="actionBtn">操作</g-button>
+                    <template v-slot:action>
+                        <g-button>操作</g-button>
+                    </template>
                 </g-tab-head>
                 <g-tab-body>
                     <g-tab-pane name="finance">财经资讯</g-tab-pane>

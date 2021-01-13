@@ -9,6 +9,7 @@ gulu demo init
 
 ## 组件name的作用
 1. 方便调试用（vue-devtool）
+2. 获取当前组件名称（参考Tab组件）
 
 ## 样式Scoped的用处
 
@@ -56,4 +57,6 @@ this.$slots.default = [message]
         }
       }
    });
-   ``` 
+   ```
+## Tab组件
+1. v-slot **只能添加在`<template>`元素上**（当只有默认插槽时，可以添加在组件上） 

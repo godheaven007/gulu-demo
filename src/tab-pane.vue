@@ -1,5 +1,5 @@
 <template>
-    <div class="tab-pane" :class="showCurTab">
+    <div class="tab-pane" :class="showCurTab" v-if="active">
         <slot></slot>
     </div>
 </template>
@@ -8,7 +8,12 @@
     export default {
         name: "GuluTabPane",
         inject: ['eventBus'],
-        props: ['name'],
+        props: {
+          name: {
+            type: String|Number,
+            required: true
+          }
+        },
         data() {
             return {
                 active: false
@@ -29,12 +34,10 @@
 
 <style scoped lang="scss">
     .tab-pane {
-        display: none;
         width: 100%;
         height: 80px;
-        border: 1px solid;
+        padding: 20px;
         &.active{
-            display: block;
         }
     }
 </style>

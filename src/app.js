@@ -30,7 +30,7 @@ Vue.use(plugin);
 var vm = new Vue({
     el: '#app',
     data: {
-        selectedTab: 'sports'
+        selectedTab: 'fun'
     },
     created() {
         // 普通toast

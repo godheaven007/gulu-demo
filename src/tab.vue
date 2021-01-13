@@ -13,20 +13,30 @@
                 type: String
             }
         },
+        data() {
+          return {
+            eventBus: new Vue()
+          }
+        },
         provide() {
             return {
-                eventBus: new Vue()
+                eventBus: this.eventBus
             }
         },
         mounted() {
             this.$children.forEach((vm) => {
-                vm.$children.forEach((childVm) => {
-                    // 组件name的作用
-                    if(childVm.$options.name == 'GuluTabItem' && childVm.name === this.selected) {
-                        childVm.eventBus.$emit('update:selected', this.selected);
-                    }
-                })
+                if(vm.$options.name == 'GuluTabHead') {
+                    vm.$children.forEach((childVm) => {
+                      // 组件name的作用
+                      if(childVm.$options.name == 'GuluTabItem' && childVm.name === this.selected) {
+                        this.eventBus.$emit('update:selected', this.selected, childVm);
+                      }
+                    })
+                }
             })
+        },
+        methods: {
+
         }
     }
 </script>
