@@ -31,7 +31,7 @@ export default {
     },
     autoCloseDelay: {
       type: Number,
-      default: 18000
+      default: 1800
     },
     toastType: {
       type: [String, Number],
@@ -55,7 +55,9 @@ export default {
 
   },
   mounted() {
-    this.doAutoClose();
+    if(this.autoClose) {
+      this.doAutoClose();
+    }
 
     if(this.toastType == 2) {
       this.updateLineHeight();
@@ -63,11 +65,9 @@ export default {
   },
   methods: {
     doAutoClose() {
-      if(this.autoClose) {
-        setTimeout(() => {
-          this.close();
-        }, this.autoCloseDelay);
-      }
+      setTimeout(() => {
+        this.close();
+      }, this.autoCloseDelay);
     },
     doManualClose() {
       this.close();
