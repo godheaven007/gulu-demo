@@ -31,8 +31,10 @@ curVm.$mount('#app')
 ```
 3. 插槽默认值设置
 ```vue
-this.$slots.default = [message]
+this.$slots.default = [vnode]
+可以参考element的message组件
 ```
+[vnode如何创建??]('https://cn.vuejs.org/v2/guide/render-function.html#createElement-%E5%8F%82%E6%95%B0')
 4. $destroy
    * 只是完全销毁一个实例。清理它与其它实例的连接，解绑它的全部指令及事件监听器。
    * 若要删除dom，则需手动清除

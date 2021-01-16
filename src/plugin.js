@@ -36,7 +36,16 @@ function createToast({Vue, msg, toastOpt}) {
         propsData: toastOpt
     });
     // 插槽默认值设置
-    curVm.$slots.default = [msg];
+    // curVm.$slots.default = [msg];
+
+    let h = curVm.$createElement;
+    let vnode = h('span', {
+        style: {
+            color: 'red'
+        }
+    }, [msg]);
+    curVm.$slots.default = [vnode];
+
     curVm.$mount();
     document.body.appendChild(curVm.$el);
 
