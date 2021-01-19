@@ -13,6 +13,7 @@ import tabBody from './tab-body';
 import tabPane from './tab-pane';
 import breadCrumb from "./breadCrumb";
 import breadItem from "./breadItem";
+import alert from "./alert";
 
 Vue.component('g-button', Button);
 Vue.component('g-icon', Icon);
@@ -30,6 +31,9 @@ Vue.component('g-tab-pane', tabPane);
 // breadCrumb
 Vue.component('g-breadcrumb', breadCrumb);
 Vue.component('g-breadcrumb-item', breadItem);
+
+// alert
+Vue.component('g-alert', alert);
 
 Vue.use(plugin);
 
@@ -75,6 +79,9 @@ var vm = new Vue({
         },
         doToast3() {
             this.$toast('Toast3', {position: 'bottom'});
+        },
+        handleAlertClose() {
+            this.$toast('handleAlertClose', {position: 'top'});
         }
     }
 });

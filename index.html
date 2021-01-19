@@ -27,12 +27,21 @@
 <body>
     <div id="app">
         <div class="box">
-            <g-breadcrumb separator-class="setting" separator="|">
-                <g-breadcrumb-item>政策管理</g-breadcrumb-item>
-                <g-breadcrumb-item>企业政策</g-breadcrumb-item>
-                <g-breadcrumb-item>发布</g-breadcrumb-item>
-            </g-breadcrumb>
+            <g-alert title="成功提示的文案" type="success" :closable="false"></g-alert>
+            <g-alert title="消息提示的文案" type="info" custom-close-txt="知道了"></g-alert>
+            <g-alert title="警告提示的文案" :show-icon="true" type="warn"></g-alert>
+            <g-alert title="错误提示的文案" type="error" theme="dark" @close="handleAlertClose">
+                这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……
+            </g-alert>
         </div>
+
+<!--        <div class="box">-->
+<!--            <g-breadcrumb>-->
+<!--                <g-breadcrumb-item>政策管理</g-breadcrumb-item>-->
+<!--                <g-breadcrumb-item>企业政策</g-breadcrumb-item>-->
+<!--                <g-breadcrumb-item>发布</g-breadcrumb-item>-->
+<!--            </g-breadcrumb>-->
+<!--        </div>-->
 <!--        <div class="box">-->
 <!--            <g-tab :selected.sync="selectedTab">-->
 <!--                <g-tab-head>-->
