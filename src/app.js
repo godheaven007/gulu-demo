@@ -11,6 +11,8 @@ import tabHead from './tab-head';
 import tabItem from './tab-item';
 import tabBody from './tab-body';
 import tabPane from './tab-pane';
+import breadCrumb from "./breadCrumb";
+import breadItem from "./breadItem";
 
 Vue.component('g-button', Button);
 Vue.component('g-icon', Icon);
@@ -25,6 +27,10 @@ Vue.component('g-tab-item', tabItem);
 Vue.component('g-tab-body', tabBody);
 Vue.component('g-tab-pane', tabPane);
 
+// breadCrumb
+Vue.component('g-breadcrumb', breadCrumb);
+Vue.component('g-breadcrumb-item', breadItem);
+
 Vue.use(plugin);
 
 var vm = new Vue({
@@ -35,7 +41,8 @@ var vm = new Vue({
     created() {
         // 普通toast
         // this.$toast('Toast信息', {
-        //     position: 'bottom'
+        //     position: 'bottom',
+        //     duration: 3000000
         // });
 
         // 扩展toast

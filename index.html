@@ -27,24 +27,29 @@
 <body>
     <div id="app">
         <div class="box">
-            <g-tab :selected.sync="selectedTab">
-                <g-tab-head>
-                    <g-tab-item name="finance">财经</g-tab-item>
-                    <g-tab-item name="sports">体育</g-tab-item>
-                    <g-tab-item name="fun"><g-icon type="setting"></g-icon>娱乐</g-tab-item>
-                    <template v-slot:action>
-                        <g-button>操作</g-button>
-                    </template>
-                </g-tab-head>
-                <g-tab-body>
-                    <g-tab-pane name="finance">财经资讯</g-tab-pane>
-                    <g-tab-pane name="sports">体育资讯</g-tab-pane>
-                    <g-tab-pane name="fun">娱乐资讯</g-tab-pane>
-                </g-tab-body>
-            </g-tab>
+            <g-breadcrumb separator-class="setting" separator="|">
+                <g-breadcrumb-item>政策管理</g-breadcrumb-item>
+                <g-breadcrumb-item>企业政策</g-breadcrumb-item>
+                <g-breadcrumb-item>发布</g-breadcrumb-item>
+            </g-breadcrumb>
         </div>
-
-
+<!--        <div class="box">-->
+<!--            <g-tab :selected.sync="selectedTab">-->
+<!--                <g-tab-head>-->
+<!--                    <g-tab-item name="finance">财经</g-tab-item>-->
+<!--                    <g-tab-item name="sports">体育</g-tab-item>-->
+<!--                    <g-tab-item name="fun"><g-icon type="setting"></g-icon>娱乐</g-tab-item>-->
+<!--                    <template v-slot:action>-->
+<!--                        <g-button>操作</g-button>-->
+<!--                    </template>-->
+<!--                </g-tab-head>-->
+<!--                <g-tab-body>-->
+<!--                    <g-tab-pane name="finance">财经资讯</g-tab-pane>-->
+<!--                    <g-tab-pane name="sports">体育资讯</g-tab-pane>-->
+<!--                    <g-tab-pane name="fun">娱乐资讯</g-tab-pane>-->
+<!--                </g-tab-body>-->
+<!--            </g-tab>-->
+<!--        </div>-->
 
         <!--<div class="box">-->
             <!--<button @click="doToast">Toast top</button>-->
